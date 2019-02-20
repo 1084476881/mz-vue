@@ -1,5 +1,15 @@
 <template>
   <div>
-    我的天
+    <Film></Film>
   </div>
 </template>
+
+<script>
+import Film from './views/Film';
+
+export default {
+  components: {
+    Film
+  }
+}
+</script>
