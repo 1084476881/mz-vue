@@ -7,10 +7,12 @@ import Cinema from './views/Cinema.vue';
 import Center from './views/Center.vue';
 import City from './views/City.vue';
 import Home from './views/Home.vue';
+import Detail from './views/Detail.vue';
 
 Vue.use(VueRouter);
 
 let router = new VueRouter({
+  mode: 'history',
   // 路由对照表
   routes: [
     {
@@ -36,8 +38,13 @@ let router = new VueRouter({
       ]
     },
     {
+      name: 'hhh',
       path: '/city',
       component: City
+    },
+    {
+      path: '/detail/:id',
+      component: Detail
     },
     {
       path: '*',
