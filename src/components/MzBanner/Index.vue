@@ -64,5 +64,9 @@ export default {
   img {
     width: 100%;
   }
+  .swiper-pagination-bullet {
+    opacity : 1;
+  }
 }
+
 </style>
