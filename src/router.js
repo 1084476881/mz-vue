@@ -1,7 +1,5 @@
 // vue-router的配置文件
 
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Film from './views/Film.vue';
@@ -11,6 +9,10 @@ import City from './views/City.vue';
 import Home from './views/Home.vue';
 import Detail from './views/Detail.vue';
 import Login from './views/Login.vue';
+import Card from './views/Card.vue';
+import Money from './views/Money.vue';
+import System from './views/System.vue';
+import NProgress from 'nprogress';
 NProgress.configure({ showSpinner: false });
 
 Vue.use(VueRouter);
@@ -56,27 +58,15 @@ let router = new VueRouter({
     },
     {
       path: '/card',
-      component: {
-        render (h) {
-          return h('div', '卖座卡页面');
-        }
-      }
+      component: Card
     },
     {
       path: '/money',
-      component: {
-        render (h) {
-          return h('div', '余额页面');
-        }
-      }
+      component: Money
     },
     {
       path: '/system',
-      component: {
-        render (h) {
-          return h('div', '设置页面');
-        }
-      }
+      component: System
     },
     {
       path: '/login',
