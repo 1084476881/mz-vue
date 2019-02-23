@@ -2,16 +2,16 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Film from './views/Film.vue';
-import Cinema from './views/Cinema.vue';
-import Center from './views/Center.vue';
-import City from './views/City.vue';
-import Home from './views/Home.vue';
-import Detail from './views/Detail.vue';
-import Login from './views/Login.vue';
-import Card from './views/Card.vue';
-import Money from './views/Money.vue';
-import System from './views/System.vue';
+// import Film from './views/Film.vue';
+// import Cinema from './views/Cinema.vue';
+// import Center from './views/Center.vue';
+// import City from './views/City.vue';
+// import Home from './views/Home.vue';
+// import Detail from './views/Detail.vue';
+// import Login from './views/Login.vue';
+// import Card from './views/Card.vue';
+// import Money from './views/Money.vue';
+// import System from './views/System.vue';
 import NProgress from 'nprogress';
 NProgress.configure({ showSpinner: false });
 
@@ -19,23 +19,29 @@ Vue.use(VueRouter);
 
 let router = new VueRouter({
   mode: 'hash',
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  },
   // 路由对照表
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('./views/Home.vue'),
       children: [
         {
           path: 'films',
-          component: Film
+          component: () => import('./views/Film.vue')
         },
         {
           path: 'cinemas',
-          component: Cinema
+          component: () => import('./views/Cinema.vue')
         },
         {
           path: 'center',
-          component: Center
+          component: () => import('./views/Center.vue')
         },
         {
           path: '',
@@ -46,11 +52,11 @@ let router = new VueRouter({
     {
       name: 'hhh',
       path: '/city',
-      component: City
+      component: () => import('./views/City.vue')
     },
     {
       path: '/detail/:id',
-      component: Detail,
+      component: () => import('./views/Detail.vue'),
       props: {
         name: '张三',
         age: 18
@@ -58,19 +64,19 @@ let router = new VueRouter({
     },
     {
       path: '/card',
-      component: Card
+      component: () => import('./views/Card.vue')
     },
     {
       path: '/money',
-      component: Money
+      component: () => import('./views/Money.vue')
     },
     {
       path: '/system',
-      component: System
+      component: () => import('./views/System.vue')
     },
     {
       path: '/login',
-      component: Login
+      component: () => import('./views/Login.vue')
     },
     {
       path: '*',

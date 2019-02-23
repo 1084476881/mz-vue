@@ -8,6 +8,7 @@
       <router-link tag="li" to="/detail/200">家和万事惊</router-link>
       <router-link tag="li" to="/detail/300">新喜剧之王</router-link>
     </ul>
+    <div style="height:2000px;"></div>
   </div>
 </template>
 
