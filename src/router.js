@@ -81,9 +81,14 @@ let router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   NProgress.start();
-  if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
+  let nickname = sessionStorage.getItem('nickname');
+  let list = ['/card', '/money', '/system'];
+  if (list.indexOf(to.path) > -1 && !nickname) { // 拦截
     next({
-      path: '/login'
+      path: '/login',
+      query: {
+        redirect: to.fullPath
+      }
     })
   } else {
     next();
